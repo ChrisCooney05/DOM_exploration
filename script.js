@@ -11,6 +11,10 @@ function createListElement() {
   li.appendChild(document.createTextNode(input.value));
   ul.appendChild(li);
   input.value = "";
+  createButton(li);
+}
+
+function createButton(li) {
   let button = document.createElement("button");
   button.appendChild(document.createTextNode("Delete"));
   li.appendChild(button);
