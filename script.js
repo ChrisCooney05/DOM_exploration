@@ -11,6 +11,10 @@ function createListElement() {
   li.appendChild(document.createTextNode(input.value));
   ul.appendChild(li);
   input.value = "";
+  let button = document.createElement("button");
+  button.appendChild(document.createTextNode("Delete"));
+  li.appendChild(button);
+  button.onclick = removeTarget;
 }
 
 function addListAfterClick() {
@@ -30,8 +34,15 @@ function toggleDone(event) {
   li.classList.toggle("done");
 }
 
+function removeTarget(event) {
+  event.target.parentNode.remove();
+}
+
 button.addEventListener("click", addListAfterClick);
 
 input.addEventListener("keypress", addListAfterKeypress);
 
 ul.addEventListener("click", toggleDone);
+
+//for delete item task - look at setting button class to the value as the li- may also need to look at setting class of each
+//li to the value of its self.
